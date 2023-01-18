@@ -29,6 +29,16 @@
                     <li>Arrivo: 
                         {{ $train->arrival_time }}
                     </li>
+                    <li>È in orario:
+                        @if ($train->is_on_time == true)
+                            <strong>Sì</strong>
+                        @else
+                            <strong>No</strong>
+                        @endif
+                    </li>
+                    @if ($train->is_deleted == true)
+                        <li><strong class="text-danger">Il treno è stato cancellato</strong></li>
+                    @endif
                 </ul>
             @endforeach
         </div>
